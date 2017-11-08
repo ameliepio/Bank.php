@@ -1,13 +1,26 @@
 <?php
-require ("../entities/Client.php");
-require ("../entities/Produit.php");
 
-//Instance of new Client
-$my_client = new Client("Toto", 56);
-$my_product  = new Produit("Voiture");
+ require '../model/connexion.php';
+ require '../model/bankManager.php';
 
-$my_client->addProductToBasket($my_product);
 
+ // je crée mon manager pour pouvoir me connecter a la base de donnée
+ // create my manager for connection bdd
+ $manager = new bankManager($bdd);
+
+ // je recupere et j'affiche ma liste de vehicules
+ // I get back and I display my list of vehicles
+ $account=$manager->getVehicles();
+
+
+ // on crée une boucle qui parcours l'objet
+ // create a loop that traverses the object
+
+ foreach ($account as $key=>$value){
+     $class = ucfirst($value['name account']);
+     $account[$key] = new $class($value);
+     //var_dump($value);
+ }
+ //var_dump($vehicles);
 
 include "../views/indexVue.php";
- ?>
