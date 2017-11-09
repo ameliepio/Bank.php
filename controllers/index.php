@@ -1,16 +1,16 @@
 <?php
 
  require '../model/connexion.php';
- require '../model/bankManager.php';
+ require '../model/AccountManager.php';
 
 
  // je crée mon manager pour pouvoir me connecter a la base de donnée
  // create my manager for connection bdd
- $manager = new bankManager($bdd);
+ $manager = new AccountManager($bdd);
 
  // je recupere et j'affiche ma liste de vehicules
  // I get back and I display my list of vehicles
- $account=$manager->getVehicles();
+ $account=$manager->getAccount($account);
 
 
  // on crée une boucle qui parcours l'objet
@@ -21,6 +21,5 @@
      $account[$key] = new $class($value);
      //var_dump($value);
  }
- //var_dump($vehicles);
 
 include "../views/indexVue.php";
