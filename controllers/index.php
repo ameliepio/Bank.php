@@ -14,5 +14,15 @@
  $accounts=$manager->getAccounts();
  // var_dump($accounts);
 
+ if (isset($_POST['DeleteAccount'])) {
+   $account = $manager->getAccount($_POST['DeleteAccount']);
+   $manager->deleteAccount($account);
+   // header("Location: index.php");
+ }
+
+
+
+
+
 
 include "../views/indexVue.php";

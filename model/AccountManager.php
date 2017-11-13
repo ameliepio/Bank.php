@@ -55,25 +55,20 @@ class AccountManager
         return $account;
 
       }
-    }
 
 
 
-     ?>
-
-
-<!-- return $accounts; -->
-     <!-- }
-
-    //  function deleteAccount($account)
-    //  {
-    //      global $bdd;
-    //      $request = $bdd->prepare('DELETE FROM bankaccount WHERE id = :id');
-    //      $request->execute(array(
-    //          'id' => $account->getId()
-    //      ));
-    //  }
-    //  function updateAccount($account)
+     function deleteAccount($account)
+     {
+         global $bdd;
+         $request = $bdd->prepare('DELETE FROM bankaccount WHERE id = :id');
+         $request->execute(array(
+             'id' => $account->getId()
+         ));
+     }
+        }
+    ?>
+    <!-- //  function updateAccount($account)
     //  {
     //      global $bdd;
     //      $request = $bdd->prepare('UPDATE bankaccount SET nameAccount = :nameAccount, bankoperation = :bankoperation, amount = :amount WHERE id = :id');

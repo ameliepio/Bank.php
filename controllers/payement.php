@@ -13,10 +13,10 @@ if(isset($_POST["addAccount"])) {
   // $erreur = $formsVerif->isFormEmpty($_POST);
   // //Si certainnes sont vides, j'affiche un message d'erreur
   //     echo 'tot';
-  // if (isset($erreur)) {
-  //   echo $erreur;
-  // }
-  // else {
+  if (isset($erreur)) {
+    echo $erreur;
+  }
+  else {
     // Créer un objet utilisateur sur la base du formulaire soumis
       $account = new Account($_POST);
 
@@ -25,7 +25,7 @@ if(isset($_POST["addAccount"])) {
       $AccountManager->addAccount($account);
       header("location:index.php");
   }
-// }
+}
 
 //On récupère un tableau contenant les infos utilisateur depuis la BD
 // $account=$AccountManager->getAccount($_POST);
