@@ -1,67 +1,90 @@
 <?php
 
+require("../entities/Account.php");
+
 class AccountManager
 {
     // Instance de PDO
     //attibuts bdd
+      //Méthode qui retourne la connexion à la base de données
 
-    private $bd;
+      public function getDb() {
+        $db = new PDO('mysql:host=localhost;dbname=bank', "root", "root");
+        return $db;
+      }
 
-    public function __construct($bd)
-    {
-        $this->setDb($bd);
+      //Méthode qui ajoute un utilisateur en base de données
+      public function addAccount(Account $account) {
+        //1 Se connecter à la bse de données
+        $db = $this->getDb();
+        //2 Préparer l'insertion en BD
+        $request = $db->prepare("INSERT INTO bankaccount (NameAccount,Amount) VALUES(:NameAccount,:Amount)");
+        //3 Executer la requête avec les bonnes valeurs
+        $request->execute([
+          ":NameAccount"=> $account->getNameAccount(),
+          ":Amount"=> $account->getAmount()]);
+      }
+
+      //Méthode qui récupère tous les utilisateurs enregistrés
+
+      public function getAccounts() {
+        //1 Je me connecte à la base de données
+        $db = $this->getDb();
+        //2 Je récupère toutes les lignes de la base de données avec une requête SQL
+        $request = $db->query("SELECT * FROM bankaccount");
+        //3 je récupère toutes les données sous forme d'un tableau associatif
+        $data = $request->fetchAll(PDO::FETCH_ASSOC);
+        //4 Je boucle sur le tableau pour transformer chaque sous-tableau en objet
+        foreach ($data as $key => $value) {
+          $data[$key] = new Account($value);
+        }
+        //5 Je retourne le résultat
+        return $data;
+      }
+
+      //Méthode récupère un utilisateur en base de données
+
+      public function getAccount($NameAccount){
+        $db = $this->getDb();
+
+        $request = $db->prepare("SELECT * FROM bankaccount WHERE NameAccount= ?");
+        $request->execute([$NameAccount]);
+
+        $data = $request->fetch(PDO::FETCH_ASSOC);
+        $account = new Account($data);
+        return $account;
+
+      }
     }
-    // Methods
 
-    public function setDb(PDO $bd)
-    {
-        $this->bd = $bd;
-    }
-    function addAccount($account)
-     {
-         global $bdd;
-         $request = $bdd->prepare('INSERT INTO bankaccount(nameAccount,bankoperation, amount) VALUES(:nameAccount, :bankoperation, :amount)');
-         $request->execute(array(
-             "nameAccount" => $account->getNameAccount(),
-             "bankoperation" => $account->getBankoperation(),
-             "amount" => $account->getAmount(),
-         ));
-         // bonus: we return an value indicate the user is added
-         return "account Added";
-     }
 
-     function getAccount($id)
-     {
-         global $bdd;
-         $request = $bdd->prepare('SELECT * FROM bankaccount WHERE id = :id');
-         $request->execute(array(
-             "id" => $id
-         ));
-         $request->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Account', array(array('nameAccount','bankoperation','amount')));
-         $account = $request->fetch();
-         return $account;
-     }
 
-     function deleteAccount($account)
-     {
-         global $bdd;
-         $request = $bdd->prepare('DELETE FROM bankaccount WHERE id = :id');
-         $request->execute(array(
-             'id' => $account->getId()
-         ));
-     }
-     function updateAccount($account)
-     {
-         global $bdd;
-         $request = $bdd->prepare('UPDATE bankaccount SET nameAccount = :nameAccount, bankoperation = :bankoperation, amount = :amount WHERE id = :id');
-         $request->execute(array(
-           "nameAccount" => $account->getNameAccount(),
-           "bankoperation" => $account->getBankoperation(),
-           "amount" => $account->getAmount(),
-             'id' => $account->getId()
-         ));
-         //bonus return value indicate the user is update
-         return 'account updated';
-     }
+     ?>
 
-}
+
+<!-- return $accounts; -->
+     <!-- }
+
+    //  function deleteAccount($account)
+    //  {
+    //      global $bdd;
+    //      $request = $bdd->prepare('DELETE FROM bankaccount WHERE id = :id');
+    //      $request->execute(array(
+    //          'id' => $account->getId()
+    //      ));
+    //  }
+    //  function updateAccount($account)
+    //  {
+    //      global $bdd;
+    //      $request = $bdd->prepare('UPDATE bankaccount SET nameAccount = :nameAccount, bankoperation = :bankoperation, amount = :amount WHERE id = :id');
+    //      $request->execute(array(
+    //        "nameAccount" => $account->getNameAccount(),
+    //        "bankoperation" => $account->getBankoperation(),
+    //        "amount" => $account->getAmount(),
+    //          'id' => $account->getId()
+    //      ));
+    //      //bonus return value indicate the user is update
+    //      return 'account updated';
+    //  }
+
+} -->

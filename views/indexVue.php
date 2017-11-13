@@ -1,10 +1,10 @@
 <?php
-  include("template/header.php")
+  include("template/header.php");
  ?>
 
 <p>This is the index view</p>
 
-  <!DOCTYPE html>
+  <!-- <!DOCTYPE html> -->
    <html>
 
 
@@ -12,9 +12,9 @@
       <table>
         <thead>
           <tr>
-              <th>name account</th>
-              <th>bank operation</th>
-              <th>amount</th>
+              <th>NameAccount</th>
+              <th>BankOperation</th>
+              <th>Amount</th>
           </tr>
         </thead>
 
@@ -23,9 +23,15 @@
 
           <tr>
 
-          <td>  <a href="payement.php?id=<?= $account->getId(); ?>"><?= $account->getId(); ?> </a></td>
-                      <td></td>
-            <td></td>
+            <?php
+            foreach ($accounts as $account)
+            {
+            ?>
+                    <td><?php echo $account->getNameAccount();?></td>
+                    <td><?php echo $account->getBankOperation();?></td>
+                    <td><?php echo $account->getAmount();?></td>
+
+          <?php }?>
           </tr>
 
         </tbody>
@@ -34,9 +40,9 @@
 
 <class button>
 
-<a class="waves-effect waves-light btn-large">Add</a>
+<!-- <a class="waves-effect waves-light btn-large">Add</a> -->
 
-<a class="#ffff00 yellow accent-2 btn-large" href="payement.php">payment</a>
+<a class="#ffff00 yellow accent-2 btn-large" href="payement.php">Add</a>
 
 <a class="#d50000 red accent-4 btn-large">Delete</a>
 
@@ -54,5 +60,5 @@
    </html>
 
    <?php
-     include("template/footer.php")
+     include ("template/footer.php");
     ?>

@@ -1,41 +1,34 @@
 <?php
+//I Charger les classes et outils nécessaires
+require_once("../model/AccountManager.php");
+require_once("../entities/Account.php");
+require_once("../services/formsVerif.php");
+
+$AccountManager = new AccountManager();
+$formsVerif = new formsVerif();
+
+//II Executer la logiques (if, variables, transformations...)
+if(isset($_POST["addAccount"])) {
+  //Vérifier que toutes les entrées sont pleines
+  // $erreur = $formsVerif->isFormEmpty($_POST);
+  // //Si certainnes sont vides, j'affiche un message d'erreur
+  //     echo 'tot';
+  // if (isset($erreur)) {
+  //   echo $erreur;
+  // }
+  // else {
+    // Créer un objet utilisateur sur la base du formulaire soumis
+      $account = new Account($_POST);
 
 
-require '../model/connexion.php';
-require '../model/AccountManager.php';
+    //Grace au Usermanager enregistrer l'objet créé BD
+      $AccountManager->addAccount($account);
+      header("location:index.php");
+  }
+// }
 
-
-// je crée mon manager pour pouvoir me connecter a la base de donnée
-//create manager for connection bdd
-$manager = new AccountManager($bdd);
-
-// si on rempli le formulaire
-// if you fill in the form
-if (isset($_POST['name account']) AND isset($_POST['bank operation']) AND isset($_POST['amount']) ){
-  // update an article
-
-  $account = $manager->getAccount($_GET['id']);
-  $account->hydrate($_POST);
-  $manager->updateAccount($account);
-
-  // header("Location: article.php?id=".$_GET['id']);
-}else if (isset($_POST['name account']) && isset($_POST['bank operation']) && isset($_POST['amount'])) {
-  // create an article
-  $account = new Account([$_POST['name account'], $_POST['bank operation'], $_POST['amount']]);
-  $account->hydrate($_POST);
-  $manager->addAccount($account);
-  // header("Location: index.php");
-} else if (isset($_POST['delete'])) {
-  $account = $manager->getAccount($_POST['delete']);
-  $manager->deleteAccount($account);
-  // header("Location: index.php");
-}
-if (isset($_GET['id'])) {
-
-  //utilisation du model
-$account = $manager->getAccount($_GET['id']);
-  //affichage de la vue avec binding de users
-
-} else echo 'aucun article selectioné dans l url';
-
-require '../views/payement.php';
+//On récupère un tableau contenant les infos utilisateur depuis la BD
+// $account=$AccountManager->getAccount($_POST);
+// III Afficher la vue
+include "../views/payement.php";
+ ?>

@@ -7,19 +7,12 @@
  // je crée mon manager pour pouvoir me connecter a la base de donnée
  // create my manager for connection bdd
  $manager = new AccountManager($bdd);
+ // var_dump($bdd);
 
- // je recupere et j'affiche ma liste de vehicules
- // I get back and I display my list of vehicles
- $account=$manager->getAccount($account);
+ // je recupere et j'affiche ma liste de compte
+ // I get back and I display my list of compte
+ $accounts=$manager->getAccounts();
+ // var_dump($accounts);
 
-
- // on crée une boucle qui parcours l'objet
- // create a loop that traverses the object
-
- foreach ($account as $key=>$value){
-     $class = ucfirst($value['name account']);
-     $account[$key] = new $class($value);
-     //var_dump($value);
- }
 
 include "../views/indexVue.php";

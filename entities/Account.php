@@ -3,19 +3,19 @@
 class Account
 {
     private $id;
-    private $nameAccount;
-    private $bankoperation;
-    private $amount;
+    private $NameAccount;
+    private $BankOperation;
+    private $Amount;
 
 
-    public function __construct($donnees)
+    public function __construct($data)
     {
-        $this->hydrate($donnees);
+        $this->hydrate($data);
     }
 
-      public function hydrate(array $donnees)
+      public function hydrate(array $data)
     {
-        foreach ($donnees as $key => $value)
+        foreach ($data as $key => $value)
         {
             // On récupère le nom du setter correspondant à l'attribut.
             $method = 'set'.ucfirst($key);
@@ -25,8 +25,10 @@ class Account
                 // On appelle le setter.
                 $this->$method($value);
             }
-        }
-      }
+
+
+}
+}
 
     /**
      * Get the value of Id
@@ -59,43 +61,45 @@ class Account
      */
     public function getNameAccount()
     {
-        return $this->nameAccount;
+        return $this->NameAccount;
     }
 
     /**
      * Set the value of Name Account
      *
-     * @param mixed nameAccount
+     * @param mixed NameAccount
      *
      * @return self
      */
-    public function setNameAccount($nameAccount)
+    public function setNameAccount($NameAccount)
     {
-        $this->nameAccount = $nameAccount;
+        $this->NameAccount = $NameAccount;
 
         return $this;
     }
 
+
+
     /**
-     * Get the value of Bankoperation
+     * Get the value of Bank Operation
      *
      * @return mixed
      */
-    public function getBankoperation()
+    public function getBankOperation()
     {
-        return $this->bankoperation;
+        return $this->BankOperation;
     }
 
     /**
-     * Set the value of Bankoperation
+     * Set the value of Bank Operation
      *
-     * @param mixed bankoperation
+     * @param mixed BankOperation
      *
      * @return self
      */
-    public function setBankoperation($bankoperation)
+    public function setBankOperation($BankOperation)
     {
-        $this->bankoperation = $bankoperation;
+        $this->BankOperation = $BankOperation;
 
         return $this;
     }
@@ -107,22 +111,22 @@ class Account
      */
     public function getAmount()
     {
-        return $this->amount;
+        return $this->Amount;
     }
+
 
     /**
      * Set the value of Amount
      *
-     * @param mixed amount
+     * @param mixed Amount
      *
      * @return self
      */
-    public function setAmount($amount)
+    public function setAmount($Amount)
     {
-        $this->amount = $amount;
+        $this->Amount = $Amount;
 
         return $this;
     }
 
 }
-    
