@@ -42,13 +42,15 @@
       <class button>
         <td class="row .col-xs-4 .col-sm-6">
 
-<form class="" action="index.php" method="post">
- <input value="delete"  class="#d50000 red accent-4 btn" type="text"  name="DeleteAccount">
+<form class="" action="index.php" method="post" >
+  <input type="hidden" name='NameAccount' value='<?php echo $account->getNameAccount();?>'/>
+
+ <input value="delete"  class="#d50000 red accent-4 btn" type="submit"  name="DeleteAccount">
   </form>
 
 
-<form class="" action="index.html" method="post">
-<input value="transfere" type="text"class="#a5d6a7 green lighten-3 btn-large"name="Transfer">
+<form class="" action="index.php" method="post">
+<input value="transfere" type="submit"class="#a5d6a7 green lighten-3 btn-large"name="Transfer">
 </form>
 
       </class>

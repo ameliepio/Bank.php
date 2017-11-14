@@ -11,16 +11,19 @@
 
  // je recupere et j'affiche ma liste de compte
  // I get back and I display my list of compte
- $accounts=$manager->getAccounts();
+ // $accounts=$manager->getAccounts();
  // var_dump($accounts);
 
  if (isset($_POST['DeleteAccount'])) {
-   $account = $manager->getAccount($_POST['DeleteAccount']);
-   $manager->deleteAccount($account);
-   // header("Location: index.php");
+   $donnees=$manager->getAccount($_POST['NameAccount']);
+   $account = new Account($donnees);
+   $accountdelete = $manager->deleteAccount($account);
+   var_dump($account);
+  //  $manager->deleteAccount($account);
+  //  header("Location: index.php");
  }
 
-
+ $accounts=$manager->getAccounts();
 
 
 

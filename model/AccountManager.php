@@ -50,13 +50,14 @@ class AccountManager
         $request = $db->prepare("SELECT * FROM bankaccount WHERE NameAccount= ?");
         $request->execute([$NameAccount]);
 
-        $data = $request->fetch(PDO::FETCH_ASSOC);
-        $account = new Account($data);
-        return $account;
+
+// renvoi pas le tbl assoc
+      $request= $request->fetch(PDO::FETCH_ASSOC);
+
+
+        return $request;
 
       }
-
-
 
      function deleteAccount($account)
      {
