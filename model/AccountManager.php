@@ -67,20 +67,17 @@ class AccountManager
              'id' => $account->getId()
          ));
      }
-        }
-    ?>
-    <!-- //  function updateAccount($account)
-    //  {
-    //      global $bdd;
-    //      $request = $bdd->prepare('UPDATE bankaccount SET nameAccount = :nameAccount, bankoperation = :bankoperation, amount = :amount WHERE id = :id');
-    //      $request->execute(array(
-    //        "nameAccount" => $account->getNameAccount(),
-    //        "bankoperation" => $account->getBankoperation(),
-    //        "amount" => $account->getAmount(),
-    //          'id' => $account->getId()
-    //      ));
-    //      //bonus return value indicate the user is update
-    //      return 'account updated';
-    //  }
+      function updateAccount($account)
+      {
+          global $bdd;
+          $request = $bdd->prepare('UPDATE bankaccount SET nameAccount = :nameAccount,  amount = :amount WHERE id = :id');
+          $request->execute(array(
+            "nameAccount" => $account->getNameAccount(),
+                "amount" => $account->getAmount(),
+              'id' => $account->getId(),
+          ));
 
-} -->
+
+        }
+      }
+    ?>

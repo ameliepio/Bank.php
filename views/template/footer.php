@@ -1,5 +1,5 @@
 <footer>
-  <p>A footer if you need one</p>
+    <h1>THE BEST BANK</h1>
 </footer>
 
 <script src='https://cdn.rawgit.com/Dogfalo/materialize/master/dist/js/materialize.min.js'></script>

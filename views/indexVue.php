@@ -1,10 +1,6 @@
 <?php
   include("template/header.php");
  ?>
-
-<p>This is the index view</p>
-
-  <!-- <!DOCTYPE html> -->
    <html>
 
 
@@ -45,12 +41,13 @@
 <form class="" action="index.php" method="post" >
   <input type="hidden" name='NameAccount' value='<?php echo $account->getNameAccount();?>'/>
 
- <input value="delete"  class="#d50000 red accent-4 btn" type="submit"  name="DeleteAccount">
+ <input value="delete" type="submit"  class="#d50000 red accent-4 btn-large"  name="DeleteAccount">
   </form>
 
 
 <form class="" action="index.php" method="post">
-<input value="transfere" type="submit"class="#a5d6a7 green lighten-3 btn-large"name="Transfer">
+    <input type="hidden" name='id' value='<?php echo $account->getNameAccount();?>'/>
+<input value="edit" type="submit"class="#a5d6a7 green lighten-3 btn-large"name="update">
 </form>
 
       </class>
