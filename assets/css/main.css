@@ -95,8 +95,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 .btn-large{
-display: flex;
-justify-content:center;
+text-align:center;
 width:90px;
 margin-left:12px;
 margin-bottom: 12px;

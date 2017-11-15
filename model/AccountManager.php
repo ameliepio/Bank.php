@@ -70,14 +70,14 @@ class AccountManager
       function updateAccount($account)
       {
           global $bdd;
-          $request = $bdd->prepare('UPDATE bankaccount SET nameAccount = :nameAccount,  amount = :amount WHERE id = :id');
+          $request = $bdd->prepare('UPDATE bankaccount SET NameAccount = :NameAccount,  Amount = :Amount WHERE id = :id');
           $request->execute(array(
             "nameAccount" => $account->getNameAccount(),
-                "amount" => $account->getAmount(),
+              "amount" => $account->getAmount(),
               'id' => $account->getId(),
           ));
-
-
         }
-      }
-    ?>
+            }
+
+
+        ?>

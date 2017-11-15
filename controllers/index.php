@@ -21,12 +21,20 @@
  $accounts=$manager->getAccounts();
 
  if (isset($_POST['NameAccount']) AND isset($_POST['Amount'])){
-   // update an article
-
-   $adonnees= $manager->getAccount($_POST['id']);
+   $donnees= $manager->getAccount($_GET['id']);
    $account = new Account($donnees);
    $accountupdate=$manager->updateAccount($account);
-      var_dump($account);
+     header("Location: edit.php?id=".$_GET['id']);
+var_dump($donnees);
+
+// } else if (isset($_POST['NameAccount']) && isset($_POST['Amount'])) {
+//     // create an a Account
+//     $account = new Account([$_POST['NameAccount'], $_POST['Amount'],]);
+//
+//     $manager->addAccount($account);
+//     header("Location: index.php");
 }
 
+
 include "../views/indexVue.php";
+include "../views/edit.php";
