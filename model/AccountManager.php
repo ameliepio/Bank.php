@@ -9,7 +9,7 @@ class AccountManager
       //Méthode qui retourne la connexion à la base de données
 
       public function getDb() {
-        $db = new PDO('mysql:host=localhost;dbname=bank', "root", "root");
+        $db = new PDO('mysql:host=localhost;dbname=bank', "", "");
         return $db;
       }
 
