@@ -28,7 +28,7 @@
             <?php
             foreach ($accounts as $account)
             {
-            ?>
+            ?>root
 
                     <td><?php echo $account->getNameAccount();?></td>
                     <td><?php echo $account->getAmount();?></td>
