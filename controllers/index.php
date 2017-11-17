@@ -7,11 +7,11 @@
  // je crée mon manager pour pouvoir me connecter a la base de donnée
  // create my manager for connection bdd
  $manager = new AccountManager($bdd);
- // var_dump($bdd);
+ // var_dump($manager);
 
  if (isset($_POST['DeleteAccount'])) {
-   $donnees=$manager->getAccount($_POST['NameAccount']);
-   $account = new Account($donnees);
+   $data=$manager->getAccount($_POST['NameAccount']);
+   $account = new Account($data);
    $accountdelete = $manager->deleteAccount($account);
 
   //  $manager->deleteAccount($account);
@@ -20,11 +20,11 @@
 
  $accounts=$manager->getAccounts();
 
-//  if (isset($_POST['NameAccount']) AND isset($_POST['Amount'])){
-//    $donnees= $manager->getAccount($_GET['id']);
-//    $account = new Account($donnees);
-//    $accountupdate=$manager->updateAccount($account);
-//      header("Location: edit.php?id=".$_GET['id']);
+ if (isset($_POST['NameAccount']) AND isset($_POST['Amount'])){
+   $data= $manager->getAccount($_POST['id']);
+   $account = new Account($data);
+   $accountupdate=$manager->updateAccount($account);
+
 // var_dump($account);
 
 // } else if (isset($_POST['NameAccount']) && isset($_POST['Amount'])) {
@@ -33,7 +33,7 @@
 //
 //     $manager->addAccount($account);
 // //     header("Location: index.php");
-// }
+}
 
 
 include "../views/indexVue.php";

@@ -44,8 +44,8 @@
   </form>
 
 
-<form class="" action="edit.php" method="post">
-    <input type="hidden" name='id' value=''/>
+<form class="" action="index.php" method="post">
+    <input type="hidden" name='id' value='<?php echo $account->getNameAccount();?>'/>
 <input value="edit" type="submit"class="#a5d6a7 green lighten-3 btn-large"name="update">
 </form>
 

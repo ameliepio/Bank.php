@@ -9,14 +9,14 @@ class AccountManager
       //Méthode qui retourne la connexion à la base de données
 
       public function getDb() {
-        $db = new PDO('mysql:host=localhost;dbname=bank', "root", "root");
+        $db = new PDO('mysql:host=localhost;dbname=bank', 'root', 'root');
         return $db;
       }
 
       //Méthode qui ajoute un utilisateur en base de données
       public function addAccount(Account $account) {
         //1 Se connecter à la bse de données
-        $db = $this->getDb();
+      $db = $this->getDb();
         //2 Préparer l'insertion en BD
         $request = $db->prepare("INSERT INTO bankaccount (NameAccount,Amount) VALUES(:NameAccount,:Amount)");
         //3 Executer la requête avec les bonnes valeurs
@@ -78,6 +78,5 @@ class AccountManager
           ));
         }
             }
-
 
         ?>
