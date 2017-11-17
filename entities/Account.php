@@ -4,7 +4,6 @@ class Account
 {
     private $id;
     private $NameAccount;
-    private $BankOperation;
     private $Amount;
 
 

@@ -28,7 +28,7 @@
             <?php
             foreach ($accounts as $account)
             {
-            ?>root
+            ?>
 
                     <td><?php echo $account->getNameAccount();?></td>
                     <td><?php echo $account->getAmount();?></td>
@@ -40,12 +40,12 @@
 
 <form class="" action="index.php" method="post" >
   <input type="hidden" name='NameAccount' value='<?php echo $account->getNameAccount();?>'/>
- <input value="delete" type="submit"class="#d50000 red accent-4 btn-large"  name="DeleteAccount">
+ <input value="delete"type="submit"class="#d50000 red accent-4 btn-large"  name="DeleteAccount">
   </form>
 
 
-<form class="" action="index.php" method="post">
-    <input type="hidden" name='id' value='<?php echo $account->getNameAccount();?>'/>
+<form class="" action="edit.php" method="post">
+    <input type="hidden" name='NameAccountUpdate' value='<?php echo $account->getNameAccount();?>'/>
 <input value="edit" type="submit"class="#a5d6a7 green lighten-3 btn-large"name="update">
 </form>
 

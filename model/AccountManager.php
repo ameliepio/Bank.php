@@ -9,7 +9,7 @@ class AccountManager
       //Méthode qui retourne la connexion à la base de données
 
       public function getDb() {
-        $db = new PDO('mysql:host=localhost;dbname=bank', 'root', 'root');
+        $db = new PDO('mysql:host=localhost;dbname=bank', '', '');
         return $db;
       }
 
@@ -72,11 +72,9 @@ class AccountManager
           global $bdd;
           $request = $bdd->prepare('UPDATE bankaccount SET NameAccount = :NameAccount,  Amount = :Amount WHERE id = :id');
           $request->execute(array(
-            "NameAccount" => $account->getNameAccount(),
-              "Amount" => $account->getAmount(),
-              'id' => $account->getId(),
+            'NameAccount' => $account->getNameAccount(),
+              'Amount' => $account->getAmount(),
+              'id' => $account->getId()
           ));
         }
             }
-
-        ?>

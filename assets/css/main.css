@@ -94,14 +94,12 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-.btn-large{
-text-align:center;
-width:90px;
-margin-left:12px;
-margin-bottom: 12px;
-font-size:12px;
-}
 
+.btn-large{
+margin-left: 12px;
+margin-top: 12px;
+width: 100px;
+}
 
 h1{
 display: flex;
