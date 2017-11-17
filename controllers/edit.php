@@ -13,15 +13,19 @@
    $data=$manager->getAccount($_POST['NameAccountUpdate']);
    $account = new Account($data);
 
-}
-
-if (isset($_POST['addAccount'])){
-   echo'test';
-// $accountupdate=$account->hydrate($_POST);
-// $accountupdate = $manager->updateAccount($accountupdate);
-
-// var_dump($data);
 var_dump($account);
+
+
+
 }
+if (isset($_POST['editAccount'])){
+
+
+ $accountupdate=new Account($_POST);
+ $manager->updateAccount($accountupdate);
+  header("location:index.php");
+}
+
+
 ;
 include "../views/edit.php";
