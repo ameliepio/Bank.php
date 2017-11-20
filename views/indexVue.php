@@ -15,7 +15,7 @@
 
           <form class="form"  method='post' action="payement.php">
 
-              <a class="#ffff00 yellow accent-2 btn-large"  href="payement.php">Add</a>
+              <a class="##82b1ff blue accent-1 btn"  href="payement.php">Add</a>
 
               </form>
         </thead>
@@ -38,16 +38,28 @@
       <class button>
         <td class="row .col-xs-4 .col-sm-6">
 
-<form class="" action="index.php" method="post" >
-  <input type="hidden" name='NameAccount' value='<?php echo $account->getNameAccount();?>'/>
- <input value="delete"type="submit"class="#d50000 red accent-4 btn-large"  name="DeleteAccount">
-  </form>
 
 
 <form class="" action="edit.php" method="post">
     <input type="hidden" name='NameAccountUpdate' value='<?php echo $account->getNameAccount();?>'/>
-<input value="edit" type="submit"class="#a5d6a7 green lighten-3 btn-large"name="update">
+<input value="edit" type="submit"class="#82b1ff blue accent-1 btn"name="update">
 </form>
+
+<form class="" action="transfer.php" method="post">
+    <input type="hidden" name='addwithdrawal' value='<?php echo $account->getNameAccount();?>'/>
+<input value="withdrawal" type="submit"class="#82b1ff blue accent-1 btn"name="withdrawal">
+</form>
+
+<form class="" action="transfer.php" method="post">
+    <input type="hidden" name='transfer' value='<?php echo $account->getNameAccount();?>'/>
+<input value="transfer" type="submit"class="#82b1ff blue accent-1 btn"name="transfer">
+</form>
+
+<form class="" action="index.php" method="post" >
+  <input type="hidden" name='NameAccount' value='<?php echo $account->getNameAccount();?>'/>
+ <input value="delete"type="submit"class="#f44336 red btn"  name="DeleteAccount">
+  </form>
+
 
       </class>
 

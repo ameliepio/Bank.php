@@ -21,7 +21,7 @@
 <input type="hidden" name="id"  value='<?php echo $account->getId()?>'>
 
 
-   <button class="btn waves-effect waves-light" type="submit" name="editAccount">Submit
+   <button class="btn #e64a19 deep-orange darken-2" type="submit" name="editAccount">Submit
      <i class="material-icons right">send</i>
 
    </button>

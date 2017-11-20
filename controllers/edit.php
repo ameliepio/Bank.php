@@ -13,7 +13,7 @@
    $data=$manager->getAccount($_POST['NameAccountUpdate']);
    $account = new Account($data);
 
-var_dump($account);
+// var_dump($account);
 
 
 

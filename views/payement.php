@@ -30,7 +30,7 @@
    </div>
  </div>
 
-   <button class="btn waves-effect waves-light" type="submit" name="addAccount">Submit
+   <button class="btn #e64a19 deep-orange darken-2" type="submit" name="addAccount">Submit
      <i class="material-icons right">send</i>
 
    </button>

@@ -71,4 +71,17 @@ class AccountManager
             'id' => $account->getId()
         ));
     }
+
+function withdrawal($balance){
+
+$this->$amount+=$balance;
+$this->setAmount($this->$amount);
+
+}
+function transfer($balance){
+
+$this->$amount-=$balance;
+$this->setAmount($this->$amount);
+
+}
 }
