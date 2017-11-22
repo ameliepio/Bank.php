@@ -45,13 +45,13 @@
 <input value="edit" type="submit"class="#82b1ff blue accent-1 btn"name="update">
 </form>
 
-<form class="" action="transfer.php" method="post">
+<form class="" action="withdrawal.php" method="post">
     <input type="hidden" name='addwithdrawal' value='<?php echo $account->getNameAccount();?>'/>
 <input value="withdrawal" type="submit"class="#82b1ff blue accent-1 btn"name="withdrawal">
 </form>
 
 <form class="" action="transfer.php" method="post">
-    <input type="hidden" name='transfer' value='<?php echo $account->getNameAccount();?>'/>
+    <input type="hidden" name='addtransfer' value='<?php echo $account->getNameAccount();?>'/>
 <input value="transfer" type="submit"class="#82b1ff blue accent-1 btn"name="transfer">
 </form>
 

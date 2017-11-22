@@ -121,11 +121,25 @@ class Account
      *
      * @return self
      */
+
+
     public function setAmount($Amount)
     {
         $this->Amount = $Amount;
 
         return $this;
     }
+    function withdrawal($balance){
 
+    $this->Amount-=$balance;
+    $this->setAmount($this->Amount);
+
+    }
+    function transfer($balance){
+
+    $this->Amount+=$balance;
+    $this->setAmount($this->Amount);
+
+
+}
 }

@@ -3,7 +3,7 @@
   include("template/header.php")
  ?>
 
- <form class="form"  method='post' action="../controllers/transfer.php">
+ <form class="form"  method='post' action="../controllers/withdrawal.php">
    <div class="row">
       <div class="input-field col s6">
         <input value="" id="first_name2" type="text" class="validate" name="NameAccount">
@@ -20,7 +20,7 @@
   <input type="hidden" name="NameAccount"  value='<?php echo $account->getNameAccount()?>'>
 
 
-     <button class="btn #e64a19 deep-orange darken-2" type="submit" name="transferAccount">Submit
+     <button class="btn #e64a19 deep-orange darken-2" type="submit" name="withdrawalAccount">Submit
        <i class="material-icons right">send</i>
 
      </button>
