@@ -39,37 +39,35 @@
         <td class="row .col-xs-4 .col-sm-6">
 
 
-
 <form class="" action="edit.php" method="post">
     <input type="hidden" name='NameAccountUpdate' value='<?php echo $account->getNameAccount();?>'/>
-<input value="edit" type="submit"class="#82b1ff blue accent-1 btn"name="update">
+<input value="edit" type="submit"class="#82b1ff blue accent-1 btn1"name="update">
 </form>
 
 <form class="" action="withdrawal.php" method="post">
     <input type="hidden" name='addwithdrawal' value='<?php echo $account->getNameAccount();?>'/>
-<input value="withdrawal" type="submit"class="#82b1ff blue accent-1 btn"name="withdrawal">
+<input value="withdrawal" type="submit"class="#82b1ff blue accent-1 btn1"name="withdrawal">
 </form>
 
 <form class="" action="transfer.php" method="post">
     <input type="hidden" name='addtransfer' value='<?php echo $account->getNameAccount();?>'/>
-<input value="transfer" type="submit"class="#82b1ff blue accent-1 btn"name="transfer">
+<input value="transfer" type="submit"class="#82b1ff blue accent-1 btn1"name="transfer">
 </form>
 
 <form class="" action="index.php" method="post" >
   <input type="hidden" name='NameAccount' value='<?php echo $account->getNameAccount();?>'/>
- <input value="delete"type="submit"class="#f44336 red btn"  name="DeleteAccount">
+ <input value="delete"type="submit"class="#f44336 red btn1"  name="DeleteAccount">
   </form>
 
 
       </class>
-
+  </tbody>
 
   </tr>
           <?php }?>
 
+  </table>
 
-  </tbody>
-      </table>
 
 
        <!--Import jQuery before materialize.js-->
