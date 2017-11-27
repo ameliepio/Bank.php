@@ -9,7 +9,7 @@ class AccountManager
 
     public function getDb()
     {
-        $db = new PDO('mysql:host=localhost;dbname=bank', '', '');
+        $db = new PDO('mysql:host=localhost;dbname=bank', 'root', 'root');
         return $db;
     }
     //Méthode qui ajoute un utilisateur en base de données
@@ -61,6 +61,8 @@ class AccountManager
             'id' => $account->getId()
         ));
     }
+// function update
+
     function updateAccount($account)
     {
         global $bdd;
@@ -71,6 +73,7 @@ class AccountManager
             'id' => $account->getId()
         ));
     }
+
 
 
 }

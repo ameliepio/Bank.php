@@ -6,6 +6,7 @@
 
  // je crée mon manager pour pouvoir me connecter a la base de donnée
  // create my manager for connection bdd
+
  $manager = new AccountManager($bdd);
 
  if (isset($_POST['DeleteAccount'])) {

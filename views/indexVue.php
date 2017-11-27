@@ -2,8 +2,17 @@
   include("template/header.php");
  ?>
    <html>
+<div class="row">
 
 
+     <form class="form"  method='post' action="payement.php">
+         <a class="##82b1ff blue accent-1 btn"  href="payement.php">Add</a>
+   </form>
+   <form class="connect" method="post" action="user.php" >
+   <input value="connect " type="submit"class="#82b1ff blue accent-1 btn connect"name="connect">
+
+       </form>
+   </div>
 <class="responsive-table">
       <table>
         <thead>
@@ -13,16 +22,9 @@
               <th>Amount</th>
           </tr>
 
-          <form class="form"  method='post' action="payement.php">
 
-              <a class="##82b1ff blue accent-1 btn"  href="payement.php">Add</a>
-
-              </form>
         </thead>
-
         <tbody>
-
-
           <tr>
 
             <?php
@@ -32,7 +34,6 @@
 
                     <td><?php echo $account->getNameAccount();?></td>
                     <td><?php echo $account->getAmount();?></td>
-
 
 
       <class button>
@@ -46,12 +47,12 @@
 
 <form class="" action="withdrawal.php" method="post">
     <input type="hidden" name='addwithdrawal' value='<?php echo $account->getNameAccount();?>'/>
-<input value="withdrawal" type="submit"class="#82b1ff blue accent-1 btn1"name="withdrawal">
+<input value="-" type="submit"class="#82b1ff blue accent-1 btn1"name="withdrawal">
 </form>
 
 <form class="" action="transfer.php" method="post">
     <input type="hidden" name='addtransfer' value='<?php echo $account->getNameAccount();?>'/>
-<input value="transfer" type="submit"class="#82b1ff blue accent-1 btn1"name="transfer">
+<input value="+" type="submit"class="#82b1ff blue accent-1 btn1"name="transfer">
 </form>
 
 <form class="" action="index.php" method="post" >

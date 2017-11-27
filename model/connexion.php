@@ -1,7 +1,7 @@
 <?php
-
+session_start();
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bank;charset=utf8', '', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=bank;charset=utf8', 'root', 'root');
 
 }
 
